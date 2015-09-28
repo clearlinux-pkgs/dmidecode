@@ -4,7 +4,7 @@
 #
 Name     : dmidecode
 Version  : 2.12
-Release  : 6
+Release  : 7
 URL      : http://download-mirror.savannah.gnu.org/releases//dmidecode/dmidecode-2.12.tar.bz2
 Source0  : http://download-mirror.savannah.gnu.org/releases//dmidecode/dmidecode-2.12.tar.bz2
 Summary  : No detailed summary available
