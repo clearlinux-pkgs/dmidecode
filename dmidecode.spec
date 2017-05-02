@@ -4,7 +4,7 @@
 #
 Name     : dmidecode
 Version  : 3.0
-Release  : 3
+Release  : 4
 URL      : http://download-mirror.savannah.gnu.org/releases/dmidecode/dmidecode-3.0.tar.xz
 Source0  : http://download-mirror.savannah.gnu.org/releases/dmidecode/dmidecode-3.0.tar.xz
 Summary  : No detailed summary available
