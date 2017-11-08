@@ -6,7 +6,7 @@
 #
 Name     : dmidecode
 Version  : 3.1
-Release  : 5
+Release  : 8
 URL      : http://download.savannah.gnu.org/releases/dmidecode/dmidecode-3.1.tar.xz
 Source0  : http://download.savannah.gnu.org/releases/dmidecode/dmidecode-3.1.tar.xz
 Source99 : http://download.savannah.gnu.org/releases/dmidecode/dmidecode-3.1.tar.xz.sig
@@ -16,6 +16,7 @@ License  : GPL-2.0 GPL-2.0+
 Requires: dmidecode-bin
 Requires: dmidecode-doc
 Patch1: 0001-Use-modern-defaults.patch
+Patch2: 0002-enable-debug.patch
 
 %description
 ** INTRODUCTION **
@@ -47,17 +48,18 @@ doc components for the dmidecode package.
 %prep
 %setup -q -n dmidecode-3.1
 %patch1 -p1
+%patch2 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1495718186
+export SOURCE_DATE_EPOCH=1510171037
 make V=1  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1495718186
+export SOURCE_DATE_EPOCH=1510171037
 rm -rf %{buildroot}
 %make_install
 
