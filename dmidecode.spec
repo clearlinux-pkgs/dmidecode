@@ -6,7 +6,7 @@
 #
 Name     : dmidecode
 Version  : 3.1
-Release  : 8
+Release  : 9
 URL      : http://download.savannah.gnu.org/releases/dmidecode/dmidecode-3.1.tar.xz
 Source0  : http://download.savannah.gnu.org/releases/dmidecode/dmidecode-3.1.tar.xz
 Source99 : http://download.savannah.gnu.org/releases/dmidecode/dmidecode-3.1.tar.xz.sig
