@@ -6,7 +6,7 @@
 #
 Name     : dmidecode
 Version  : 3.2
-Release  : 11
+Release  : 12
 URL      : http://download.savannah.gnu.org/releases/dmidecode/dmidecode-3.2.tar.xz
 Source0  : http://download.savannah.gnu.org/releases/dmidecode/dmidecode-3.2.tar.xz
 Source99 : http://download.savannah.gnu.org/releases/dmidecode/dmidecode-3.2.tar.xz.sig
