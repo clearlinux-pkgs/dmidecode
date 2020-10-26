@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x865688D038F02FC8 (jdelvare@suse.de)
 #
 Name     : dmidecode
-Version  : 3.2
-Release  : 13
-URL      : http://download.savannah.gnu.org/releases/dmidecode/dmidecode-3.2.tar.xz
-Source0  : http://download.savannah.gnu.org/releases/dmidecode/dmidecode-3.2.tar.xz
-Source1  : http://download.savannah.gnu.org/releases/dmidecode/dmidecode-3.2.tar.xz.sig
+Version  : 3.3
+Release  : 14
+URL      : https://download.savannah.gnu.org/releases/dmidecode/dmidecode-3.3.tar.xz
+Source0  : https://download.savannah.gnu.org/releases/dmidecode/dmidecode-3.3.tar.xz
+Source1  : https://download.savannah.gnu.org/releases/dmidecode/dmidecode-3.3.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 GPL-2.0+
@@ -17,7 +17,6 @@ Requires: dmidecode-bin = %{version}-%{release}
 Requires: dmidecode-license = %{version}-%{release}
 Requires: dmidecode-man = %{version}-%{release}
 Patch1: 0001-Use-modern-defaults.patch
-Patch2: 0002-enable-debug.patch
 
 %description
 ** INTRODUCTION **
@@ -65,33 +64,32 @@ man components for the dmidecode package.
 
 
 %prep
-%setup -q -n dmidecode-3.2
-cd %{_builddir}/dmidecode-3.2
+%setup -q -n dmidecode-3.3
+cd %{_builddir}/dmidecode-3.3
 %patch1 -p1
-%patch2 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1585185167
+export SOURCE_DATE_EPOCH=1603750095
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1585185167
+export SOURCE_DATE_EPOCH=1603750095
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/dmidecode
-cp %{_builddir}/dmidecode-3.2/LICENSE %{buildroot}/usr/share/package-licenses/dmidecode/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/dmidecode-3.3/LICENSE %{buildroot}/usr/share/package-licenses/dmidecode/4cc77b90af91e615a64ae04893fdffa7939db84c
 %make_install
 
 %files

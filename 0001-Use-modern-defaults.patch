@@ -1,4 +1,4 @@
-From 50001a81337d39985c47bd3b4dcac0a2541855ef Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Ikey Doherty <michael.i.doherty@intel.com>
 Date: Fri, 6 Mar 2015 14:57:27 +0000
 Subject: [PATCH] Use modern defaults
@@ -9,11 +9,11 @@ Signed-off-by: Ikey Doherty <michael.i.doherty@intel.com>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index 55378bb..f1a4c60 100644
+index 7aa729d..9d984e5 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -26,8 +26,8 @@ CFLAGS += -O2
- LDFLAGS =
+@@ -31,8 +31,8 @@ CFLAGS += -D_FILE_OFFSET_BITS=64
+ LDFLAGS ?=
  
  DESTDIR =
 -prefix  = /usr/local
@@ -23,6 +23,3 @@ index 55378bb..f1a4c60 100644
  mandir  = $(prefix)/share/man
  man8dir = $(mandir)/man8
  docdir  = $(prefix)/share/doc/dmidecode
--- 
-1.9.1
-
