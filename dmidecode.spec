@@ -5,17 +5,20 @@
 # Source0 file verified with key 0xA5526B9BB3CD4E6A (jdelvare@suse.de)
 #
 Name     : dmidecode
-Version  : 3.4
-Release  : 15
-URL      : https://download-mirror.savannah.gnu.org/releases/dmidecode/dmidecode-3.4.tar.xz
-Source0  : https://download-mirror.savannah.gnu.org/releases/dmidecode/dmidecode-3.4.tar.xz
-Source1  : https://download-mirror.savannah.gnu.org/releases/dmidecode/dmidecode-3.4.tar.xz.sig
+Version  : 3.5
+Release  : 16
+URL      : https://download-mirror.savannah.gnu.org/releases/dmidecode/dmidecode-3.5.tar.xz
+Source0  : https://download-mirror.savannah.gnu.org/releases/dmidecode/dmidecode-3.5.tar.xz
+Source1  : https://download-mirror.savannah.gnu.org/releases/dmidecode/dmidecode-3.5.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 GPL-2.0+
 Requires: dmidecode-bin = %{version}-%{release}
 Requires: dmidecode-license = %{version}-%{release}
 Requires: dmidecode-man = %{version}-%{release}
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 Patch1: 0001-Use-modern-defaults.patch
 
 %description
@@ -64,8 +67,8 @@ man components for the dmidecode package.
 
 
 %prep
-%setup -q -n dmidecode-3.4
-cd %{_builddir}/dmidecode-3.4
+%setup -q -n dmidecode-3.5
+cd %{_builddir}/dmidecode-3.5
 %patch1 -p1
 
 %build
@@ -73,23 +76,23 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656353136
+export SOURCE_DATE_EPOCH=1678834518
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1656353136
+export SOURCE_DATE_EPOCH=1678834518
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/dmidecode
-cp %{_builddir}/dmidecode-3.4/LICENSE %{buildroot}/usr/share/package-licenses/dmidecode/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/dmidecode-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/dmidecode/4cc77b90af91e615a64ae04893fdffa7939db84c || :
 %make_install
 
 %files
